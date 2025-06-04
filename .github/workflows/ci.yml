@@ -1,0 +1,16 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8 # or latest PNPM version
+      - run: pnpm install --frozen-lockfile
+      # - run: pnpm lint # if you set up linters
+      # - run: pnpm test # run any test scripts
+      # - run: pnpm build # if you have build scripts
